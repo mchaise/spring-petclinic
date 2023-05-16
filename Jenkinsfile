@@ -1,4 +1,8 @@
-       stage('download source code') {
+pipeline {
+    agent any
+     triggers { pollSCM('*/3 * * * *') }
+    stages {
+        stage('download source code') {
             
             steps {
                 git branch: 'main', url: 'https://github.com/shivakumarkokomuravelly/spring-petclinic.git'
